@@ -5,24 +5,25 @@
 
 
 <div class="grid-container">
-  <form id="inputForm" novalidate="novalidate" (mask)="input($event)">
+ 
     <div class="grid-child purple">
- <label for="exampleFormControlTextarea1" class="form-label">Data to be Masked</label>
+ <label for="exampleFormControlTextarea1" class="form-label1">Data to be Masked</label>
         <mat-form-field style="width: 300px;">
-    <textarea matInput rows="10" cols="55" placeholder="text" name="inpt" ></textarea>
+  <!--#box is used as an id so that the Mask button works on the input present here-->
+    <textarea matInput rows="10" cols="55" placeholder="text" #box  >
+    
+    </textarea>
 </mat-form-field>
+  
     </div>
-    <div class="pt-4 row justify-content-md-center">
-      <div class="col-1" style="text-align: center">
-        <button type="button" >Mask</button>
-      </div>
-    </div>
-  </form>
+    
+   
+  
 
     <div class="grid-child green">
- <label for="exampleFormControlTextarea2" class="form-label">Masked Data</label>
+ <label for="exampleFormControlTextarea2" class="form-label2">Masked Data</label>
         <mat-form-field style="width: 300px;">
-    <textarea matInput rows="10" cols="55" placeholder="text"></textarea>
+    <textarea matInput rows="10" cols="55" placeholder="text" ></textarea>
 </mat-form-field>
 
     </div>
@@ -40,11 +41,11 @@
   <br>
   <br>
 
-
-
-
   
-
-
-
+  <div class="pt-4 row justify-content-md-center">
+    <div class="col-1" style="text-align: center">
+      <!--click function is used to call gtvalue function defined in (app.component.ts) -->
+      <button type="button" (click)="gtvalue(box.value)"> Mask</button>
+    </div>
+  </div>
 
