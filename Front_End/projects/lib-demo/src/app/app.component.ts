@@ -37,7 +37,7 @@ export class AppComponent {
     formatsAllowed: '.jpg,.png',
     multiple: true,
   };
-
+ //files are uploaded to the backend API along with their configurartions
   afuConfig3: AngularFileUploaderConfig = {
     theme: 'dragNDrop',
     multiple: true,
@@ -63,25 +63,17 @@ export class AppComponent {
     formatsAllowed: '.jpg,.jpeg,.png,.txt',
     
   };
-  
+  //defining the functionality of gtvalue function which is triggered by Mask buttton
   clinical_text=''
-  constructor(private http: HttpClient) {}
-  input(event: { target: { elements: { value: any; }[]; }; }){
-    var inpt= event.target.elements[0].value;
-    if (inpt){
-      console.log('input text',inpt)
-      this.clinical_text = inpt.name;
-
-            const formData = new FormData();
-
-            formData.append("thumbnail", inpt);
-
-            const sendtext$ = this.http.post("/api/thumbnail-upload", formData);
-
-            sendtext$.subscribe();
-    }
-  }
-
+  gtvalue(val){
+    
+    console.warn(val)
+    this.clinical_text=val
+  }    
+  
+  
+  
+//checking whether the files are uploaded or not
   docUpload(event: any) {
     console.log('ApiResponse -> docUpload -> Event: ', event);
   }
@@ -137,4 +129,5 @@ export class AppComponent {
       //this.uploadSub = null;
     //}
 }
+
 
