@@ -1,0 +1,57 @@
+<div class="inner-container">
+
+    
+  <div class="container-header">
+    Healthcare Data Masking                                                                                        
+                                                                        
+      </div>
+<div  class="row justify-content-center">
+
+
+  <div class="grid-container">
+
+  
+
+    <div class="grid-child purple">
+      
+           <textarea class="form-control"  rows="15" cols="10" placeholder="Data to be Masked"></textarea>
+
+        </div>
+
+ 
+
+    <div class="grid-child green">
+
+    
+      <textarea class="form-control"  rows="15" cols="10" placeholder="Masked Data"></textarea>
+        </div>
+
+  </div>
+             
+
+
+
+  <div class="container-afu-container-header">
+  
+          Upload files to be Masked
+             </div>
+             <div class="container-afu-container"> 	
+          <angular-file-uploader [config]="afuConfig3" [resetUpload]=resetUpload3 (ApiResponse)="docUpload($event)">
+          </angular-file-uploader>
+    
+      
+  </div>
+
+  
+  <div class="pt-4 row justify-content-md-center">
+      <div class="col-1" style="text-align: center">
+
+
+  
+      <button class="button">Mask</button>
+      </div>
+  </div>
+
+
+
+</div>
