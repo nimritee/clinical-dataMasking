@@ -19,11 +19,11 @@ function App() {
       console.log(text)
       var data = new FormData();
       data.append(
-        "input_data",
+        "text",
         text
       );
 
-      const response = await axios.post(BASE_URL+"mask",data);
+      const response = await axios.post(BASE_URL+"mask-text",data);
       console.log(response.data);
       setOutputText(response.data)
     } catch (error) {

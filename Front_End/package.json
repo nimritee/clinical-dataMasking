@@ -1,5 +1,5 @@
 {
-  "name": "clinical-data-masking-ui",
+  "name": "clinical-data-masking",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
