@@ -6,18 +6,16 @@ var FormData = require('form-data');
 
 function UploadFilesSection() {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
-    useDropzone({ maxFiles: 2 });
+    useDropzone({ maxFiles: 20 });
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const files = uploadedFiles.map((file) => (
     <Box key={file.path}>
       <Typography variant="body1" key={`${file.path}.name`}>
         <b>File name:</b> {file.path}
       </Typography>
-      <Typography variant="body1" key={`${file.path}.size`}>
-        <b>Size:</b> {file.size} bytes
-      </Typography>
     </Box>
   ));
+  
   const BASE_URL = "http://127.0.0.1:5000/";
 
   async function maskFiles(){
@@ -26,10 +24,10 @@ function UploadFilesSection() {
     var data = new FormData();
     // console.log("df",data.getHeaders())
     for(let file of uploadedFiles){
-      data.append('file',
+      data.append('files',
       file );
     }
-    const response = await axios.post(BASE_URL+"mask",data,{
+    const response = await axios.post(BASE_URL+"mask-files",data,{
       responseType:"blob",
       headers: {
         headers: {
@@ -46,7 +44,7 @@ function UploadFilesSection() {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'output.zip'); //or any other extension
+    link.setAttribute('download', 'masked.zip'); //or any other extension
     document.body.appendChild(link);
     link.click();
   }
@@ -60,8 +58,6 @@ function UploadFilesSection() {
   }, []);
 
   const { onClick } = getRootProps();
-
- 
 
   return (
     <Box>
@@ -87,10 +83,10 @@ function UploadFilesSection() {
         <Button variant="contained" onClick={onResetClickHandler}>
           Reset
         </Button>
-        <Box  ml={2}>
-        <Button variant="contained" onClick={maskFiles}>
-          Mask files
-        </Button>
+        <Box ml={2}>
+          <Button variant="contained" onClick={maskFiles}>
+            Mask files
+          </Button>
         </Box>
       </Box>
     </Box>

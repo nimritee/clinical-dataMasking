@@ -7,7 +7,7 @@ import UploadFilesSection from "./components/UploadFilesSection";
 import axios from "axios";
 var FormData = require('form-data');
 
-const BASE_URL = "http://127.0.0.1:5000/";
+const BASE_URL = "http:/127.0.0.1:5000/";
 
 function App() {
   const [text, setText] = useState('')
@@ -30,7 +30,7 @@ function App() {
       console.error(error);
     }
   }
-
+  
   return (
     <div className="App">
       {/* APP TITLE */}
@@ -45,11 +45,6 @@ function App() {
         <TextAreaWithTitle title="Data to be Masked" text={text} setText={setText} disable={false} />
         <TextAreaWithTitle title="Masked Data" text={outputText} disable={true} />
       </Box>
-      <Box>
-        <MaskButton variant="contained" className="mask-btn" onClick={getUser} >
-          MASK DATA
-        </MaskButton>
-      </Box>
 
       {/* UPLOAD FILES SECTION */}
       <Box
@@ -57,12 +52,19 @@ function App() {
         flexDirection={"column"}
         alignItems="flex-start"
         mt={4}
-        ml={"4%"}
-      >
+        ml={"4%"} >
+
         <Typography variant="subtitle1">
           <b>Upload Files to be Masked</b>
         </Typography>
         <UploadFilesSection />
+      </Box>
+
+      <Box>
+        {/* <MaskButton variant="contained" className="mask-btn" onClick={getUser} > */}
+        <MaskButton variant="contained" className="mask-btn" onClick={getUser} >
+          MASK DATA
+        </MaskButton>
       </Box>
     </div>
   );
