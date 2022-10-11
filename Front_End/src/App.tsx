@@ -41,30 +41,40 @@ function App() {
       </Box>
 
       {/* TEXT AREAS SECTION */}
-      <Box display="flex" justifyContent={"space-between"} my={3}>
+      <Box display="flex" justifyContent={"space-between"} my={2}>
         <TextAreaWithTitle title="Data to be Masked" text={text} setText={setText} disable={false} />
         <TextAreaWithTitle title="Masked Data" text={outputText} disable={true} />
       </Box>
 
-      {/* UPLOAD FILES SECTION */}
-      <Box
-        display="flex"
-        flexDirection={"column"}
-        alignItems="flex-start"
-        mt={4}
-        ml={"4%"} >
 
-        <Typography variant="subtitle1">
-          <b>Upload Files to be Masked</b>
-        </Typography>
-        <UploadFilesSection />
-      </Box>
+      <Box mt={2} ml={3} display="flex">
+        {/* UPLOAD FILES SECTION */}
+        <Box
+          display="flex"
+          flex={1}
+          flexDirection="row"
+          alignItems="flex-start"
+          flexWrap= "wrap"
+          // mt={4}
+           >
+            
+          <Typography variant="subtitle1">
+            <b>Upload Files to be Masked</b>
+          </Typography>
+          <UploadFilesSection />
+        </Box>
 
-      <Box>
-        {/* <MaskButton variant="contained" className="mask-btn" onClick={getUser} > */}
-        <MaskButton variant="contained" className="mask-btn" onClick={getUser} >
-          MASK DATA
-        </MaskButton>
+        <Box display="flex"
+          flex={2}
+          flexDirection="row"
+          alignItems="flex-start"
+          pl={10}
+          pt={2} >
+          {/* <MaskButton variant="contained" className="mask-btn" onClick={getUser} > */}
+          <MaskButton variant="contained" className="mask-btn" onClick={getUser} >
+            MASK DATA
+          </MaskButton>
+        </Box>
       </Box>
     </div>
   );
